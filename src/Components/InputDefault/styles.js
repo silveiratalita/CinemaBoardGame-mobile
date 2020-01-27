@@ -11,7 +11,8 @@ border:solid 1px #0258;
 `;
 export const InputText = styled.TextInput`
          font-size: 25;
-         position:absolute;
-         top:8%;
-         right:40%;
+         height:40px;
+         border-color:transparent;
+         border-width:1;
+         text-align:center;
        `;
