@@ -1,5 +1,6 @@
 //@flow
 import React from 'react';
+import image from '../../../assets/README.png';
 import {
   HeaderContainer,
   HeaderTitle,
@@ -7,6 +8,7 @@ import {
   HeaderRightSide,
   AddGameButton,
   AddGameButtonIcon,
+  ImagePng,
 } from './styles';
 
 type Props = {
@@ -18,7 +20,8 @@ function Header({
   title3,
 }:Props) {
 
-    return (
+  return (
+    <ImagePng source={image}>
       <HeaderContainer>
         <HeaderLeftSide>
           <HeaderTitle>{title}</HeaderTitle>
@@ -29,11 +32,11 @@ function Header({
         <HeaderRightSide>
           <AddGameButton>
             <AddGameButtonIcon>+</AddGameButtonIcon>
-        </AddGameButton>
-            
+          </AddGameButton>
         </HeaderRightSide>
       </HeaderContainer>
-    );
+    </ImagePng>
+  );
 }
 
 export default Header;

@@ -1,5 +1,11 @@
 import React from 'react';
-import {HomeContainer, GamesView, FlatListItens, GamesViewText} from './styles';
+import {
+  HomeContainer,
+  GamesView,
+  FlatListItens,
+  GamesViewText,
+  Separator,
+} from './styles';
 import Header from '../../Components/Header';
 
 function Home() {
@@ -16,6 +22,11 @@ function Home() {
         data: '20/10/2019',
       },
     ];
+  function renderSeparator() {
+    return (
+      <Separator/>
+    );
+  }
     function renderItens({item}) {
       return (
         <GamesView>
@@ -38,8 +49,8 @@ function Home() {
           data={partidas}
           renderItem={renderItens}
           keyExtractor={item => item.id}
+          ItemSeparatorComponent={renderSeparator}
         />
-        
       </HomeContainer>
     );
 }

@@ -7,14 +7,19 @@ flex:1;
 
 export const GamesView = styled.View`
 height:50px;
-border:solid 1px #000;
+
 background:#fff;
 flex-direction:row;
 `;
 export const GamesViewText = styled.Text`
-color:#800;
+color:#000;
 font-size:16;
 margin:2px;
 `;
 
 export const FlatListItens = styled.FlatList``;
+export const Separator = styled.View`
+width:100%;
+background:#989;
+height:2px;
+`;

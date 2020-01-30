@@ -6,9 +6,9 @@ type Props = {
 };
 function InputDefault({placeholder}: Prop) {
   return (
-    <InputView>
+
       <InputText placeholder={placeholder} />
-    </InputView>
+
   );
 }
 
