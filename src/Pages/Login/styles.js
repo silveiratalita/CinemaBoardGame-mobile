@@ -1,26 +1,36 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Container = styled.View`
-  flex:1;
-  justify-content:space-evenly;
-`;
+export const Container = styled.SafeAreaView`
+         flex: 1;
+         /* justify-content: space-between; */
+         background: #fafafa;
+       `;
 export const LoginBodyView = styled.View`
-justify-content:center;
-align-content:center;
-align-items:center;
+  justify-content: center;
+  align-items: center;
+  margin-top:20%;
 `;
 export const TextLogin = styled.Text`
   font-size: 20;
-  color:#858;
+  color: #bdbdbd;
 `;
 export const CreateAcountOrEnter = styled.TouchableOpacity`
-         background: ${({enter}) => (enter ? '#7559c1' : 'transparent')};
+         background: ${({enter}) => (enter ? '#BDBDBD' : 'transparent')};
          align-content: center;
          justify-content: center;
+         border: solid 3px #d8d8d8;
+         border-radius: 50px;
+         width: 30%;
+         align-self: center;
+         margin-bottom: 35;
        `;
 export const CreateAcountOrEnterText = styled.Text`
-font-size:20;
-align-self:center;
-margin:2px;
+         font-size: 20;
+         align-self: center;
+         margin: 2px;
+       
+       `;
+export const ImagePng = styled.Image`
+  width: 100%;
+  height: 40%;
 `;
-export const ImagePng = styled.Image``;

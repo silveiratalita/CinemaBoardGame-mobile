@@ -1,4 +1,5 @@
-import React, {Text} from 'react';
+import React, { Text } from 'react';
+import Header from '../../Components/Header';
 import {
   LabelInput,
   TextTitle,
@@ -11,15 +12,14 @@ import { SafeAreaView } from 'react-native';
 
 function GameRoom() {
   return (
-  
-      <Container>
-        <TextTitle>Informe o nome da sala</TextTitle>
-        <LabelInput placeholder={'nome da sala'} />
-        <SaveButton>
-          <TextButton>CRIE SUA SALA AGORA</TextButton>
-        </SaveButton>
-      </Container>
-
+    <Container>
+      <Header isToShowHeaderComplete={false}/>
+      <TextTitle>Informe o nome da sala</TextTitle>
+      <LabelInput placeholder={'Insira o nome da sua sala aqui!'} />
+      <SaveButton>
+        <TextButton>CRIE SUA SALA AGORA</TextButton>
+      </SaveButton>
+    </Container>
   );
 }
 export default GameRoom;

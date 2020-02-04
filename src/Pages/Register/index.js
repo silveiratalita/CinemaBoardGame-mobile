@@ -2,13 +2,17 @@ import React from 'react';
 import Header from '../../Components/Header';
 import {SafeAreaView, Text} from 'react-native';
 import InputDefault from '../../Components/InputDefault';
-import image from '../../../assets/README.png';
+// import image from '../../../assets/README.png';
+
+ 
+
 import {
   ImagePng,
   LoginBodyView,
   CreateAcount,
   CreateAcountText,
   TextLogin,
+  UserIcon,
   Container,
 } from './styles';
 
@@ -18,17 +22,17 @@ function Register() {
   const email = 'Email';
   return (
     <Container>
-      <ImagePng source={image} />
+      <Header isToShowHeaderComplete={false}/>
       <LoginBodyView>
-        <TextLogin>Insira o seu nome aqui</TextLogin>
+       
         <InputDefault placeholder={name} />
 
-        <TextLogin>Insira o seu email aqui</TextLogin>
+
         <InputDefault placeholder={email} />
       </LoginBodyView>
 
       <CreateAcount>
-        <CreateAcountText>Salvar meu cadastro!</CreateAcountText>
+        <CreateAcountText>Registrar</CreateAcountText>
       </CreateAcount>
     </Container>
   );
