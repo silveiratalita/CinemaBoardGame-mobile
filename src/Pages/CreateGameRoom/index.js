@@ -6,16 +6,19 @@ import {
   SaveButton,
   Container,
   TextButton,
+  ContainerContent,
 } from './styles';
-import { SafeAreaView } from 'react-native';
+import InputDefault from '../../Components/InputDefault';
 
 
 function GameRoom() {
   return (
     <Container>
-      <Header isToShowHeaderComplete={false}/>
-      <TextTitle>Informe o nome da sala</TextTitle>
-      <LabelInput placeholder={'Insira o nome da sua sala aqui!'} />
+      <Header isToShowHeaderComplete={false} />
+      <ContainerContent>
+        <TextTitle>Informe o nome da sala</TextTitle>
+        <InputDefault placeholder={'Insira o nome da sua sala aqui!'} />
+      </ContainerContent>
       <SaveButton>
         <TextButton>CRIE SUA SALA AGORA</TextButton>
       </SaveButton>
