@@ -19,7 +19,8 @@ import Login from './src/Pages/Login';
 import Register from './src/Pages/Register';
 import Home from './src/Pages/Home';
 import CreateGameRoom from './src/Pages/CreateGameRoom';
-import Room from './src/Pages/Room';
+ import Room from './src/Pages/Room';
+
 import {
   Header,
   LearnMoreLinks,
@@ -29,7 +30,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
-  return <Room />;
+  return < Room/>;
 };
 
 
