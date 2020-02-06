@@ -19,16 +19,35 @@ import {
   ViewToStyle,
   ImageDanger,
   StartGameButton,
+  StartGameButtonText,
+  ItemViewSeparator,
 } from './styles';
 import shareImg from '../../../assets/icons/share.png'
 import Header from '../../Components/Header';
 function Room() {
-    const data = [{a: 1}, {a: 1}, {a: 1}];
+    const data = [
+      {a: 1},
+      {a: 1},
+      {a: 1},
+      {a: 1},
+      {a: 1},
+      {a: 1},
+      {a: 1},
+      {a: 1},
+      {a: 1},
+      {a: 1},
+      {a: 1},
+    ];
+  function renderItemSeparator() {
+    return (
+      <ItemViewSeparator/>
+    );
+  }
     function renderItens({item}){
         return (
-            <PlayerList>
-                <PlayerListText>Nome doplayer q entrou</PlayerListText>
-            </PlayerList>
+            // <PlayerList>
+                <PlayerListText>Talita acabou de entrar na sala</PlayerListText>
+            // </PlayerList>
         );
     }
     return (
@@ -45,18 +64,8 @@ function Room() {
             </ShareTouchable>
           </RightSide>
         </TopContainer>
-        <PlayersInside>
-          <FlatList
-            data={data}
-            keyExtractor={item => item.id}
-            renderItem={renderItens}
-          />
-        </PlayersInside>
         <EstimatedTimeAndNumberOfRounds>
-          {/* <ImageDangerView> */}
-            <ImageDanger source={image} />
-          {/* </ImageDangerView> */}
-
+          <ImageDanger source={image} />
           <ViewToStyle>
             <EstimatedTimeAndNumberOfRoundsText>
               Numero de Rodadas: 4
@@ -66,7 +75,18 @@ function Room() {
             </EstimatedTimeAndNumberOfRoundsText>
           </ViewToStyle>
         </EstimatedTimeAndNumberOfRounds>
-        <StartGameButton></StartGameButton>
+        <PlayersInside>
+          <FlatList
+            data={data}
+            keyExtractor={item => item.id}
+            renderItem={renderItens}
+            ItemSeparatorComponent={renderItemSeparator}
+          />
+        </PlayersInside>
+
+        <StartGameButton>
+          <StartGameButtonText>Iniciar Partida</StartGameButtonText>
+        </StartGameButton>
       </Container>
     );
 }
