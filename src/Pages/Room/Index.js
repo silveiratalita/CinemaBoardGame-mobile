@@ -1,17 +1,24 @@
 import React from 'react';
 import { SafeAreaView, Text, FlatList } from 'react-native';
+import image from '../../../assets/icons/problem.png';
 import {
-    Container,
-    PlayerList,
+  Container,
+  PlayerList,
   RoomName,
   RoomLink,
-    ShareTouchable,
-    PlayerListText,
-    PlayersInside,
+  ShareTouchable,
+  PlayerListText,
+  PlayersInside,
   ShareImage,
   LeftSide,
   RightSide,
   TopContainer,
+  ImageDangerView,
+  EstimatedTimeAndNumberOfRounds,
+  EstimatedTimeAndNumberOfRoundsText,
+  ViewToStyle,
+  ImageDanger,
+  StartGameButton,
 } from './styles';
 import shareImg from '../../../assets/icons/share.png'
 import Header from '../../Components/Header';
@@ -45,6 +52,21 @@ function Room() {
             renderItem={renderItens}
           />
         </PlayersInside>
+        <EstimatedTimeAndNumberOfRounds>
+          {/* <ImageDangerView> */}
+            <ImageDanger source={image} />
+          {/* </ImageDangerView> */}
+
+          <ViewToStyle>
+            <EstimatedTimeAndNumberOfRoundsText>
+              Numero de Rodadas: 4
+            </EstimatedTimeAndNumberOfRoundsText>
+            <EstimatedTimeAndNumberOfRoundsText>
+              Tempo estimado da partida de 30 minutos
+            </EstimatedTimeAndNumberOfRoundsText>
+          </ViewToStyle>
+        </EstimatedTimeAndNumberOfRounds>
+        <StartGameButton></StartGameButton>
       </Container>
     );
 }
