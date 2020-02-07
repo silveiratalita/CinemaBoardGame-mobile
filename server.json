@@ -1,5 +1,5 @@
 {
-    "jogador": [
+    "player": [
         {
             "id": 1,
             "nome":"Talita",
@@ -40,7 +40,7 @@
             "nome": "Nilo",
             "partidasGanha": 3,
             "email": "amail@email.com"
-        },
+        }
     ],
     "matches": [
         {
@@ -56,19 +56,13 @@
             "date": "19/02/2020"
         },
         {
-            "players": [
-                "Nilo",
-                "Sabrina",
-                "Andrey",
-                "Gustavo"
-            ],
+            "players": ["Nilo",  "Sabrina","Andrey", "Gustavo"],
             "winer": "Gustavo",
             "date": "19/02/2020"
         }
     ],
     
     "questions": [
-       
          {
              "id": 1,
              "question": "Questão 1",
@@ -77,5 +71,13 @@
              },
              "date": "19/02/2020"
          },
+          {
+              "id": 2,
+              "question": "Questão 1",
+              "answer": {
+                  "multiple": ["a) letra a", "b)letrab", "c)letrac", "d)letrad"]
+              },
+              "date": "19/02/2020"
+          }
     ]
 }
