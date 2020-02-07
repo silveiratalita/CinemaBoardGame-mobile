@@ -1,0 +1,81 @@
+{
+    "jogador": [
+        {
+            "id": 1,
+            "nome":"Talita",
+            "partidasGanha": 3,
+            "email": "amail@email.com"
+        },
+        {
+           "id": 2,
+        "nome": "Gustavo",
+        "partidasGanha": 3,
+        "email": "amail@email.com"
+        },
+        {
+            "id": 3,
+        "nome": "Owli",
+        "partidasGanha": 3,
+        "email": "amail@email.com"
+        },
+        {
+            "id": 4,
+            "nome": "Andrey",
+            "partidasGanha": 3
+        },
+        {
+            "id": 5,
+            "nome": "Sabrina",
+            "partidasGanha": 3,
+            "email": "amail@email.com"
+        },
+        {
+            "id": 6,
+            "nome": "Bone",
+            "partidasGanha": 3,
+            "email":"amail@email.com"
+        },
+        {
+            "id": 7,
+            "nome": "Nilo",
+            "partidasGanha": 3,
+            "email": "amail@email.com"
+        },
+    ],
+    "matches": [
+        {
+            "id": 1,
+            "players": ["Nilo", "Sabrina", "Andrey","Gustavo"],
+            "winer": "Andrey",
+            "date": "19/02/2020"
+        },
+        {
+            "id": 2,
+           "players": ["Nilo", "Sabrina", "Andrey","Gustavo"],
+            "winer": "Nilo",
+            "date": "19/02/2020"
+        },
+        {
+            "players": [
+                "Nilo",
+                "Sabrina",
+                "Andrey",
+                "Gustavo"
+            ],
+            "winer": "Gustavo",
+            "date": "19/02/2020"
+        }
+    ],
+    
+    "questions": [
+       
+         {
+             "id": 1,
+             "question": "Questão 1",
+             "answer": {
+                 "multiple": ["a) letra a", "b)letrab", "c)letrac", "d)letrad"]
+             },
+             "date": "19/02/2020"
+         },
+    ]
+}
