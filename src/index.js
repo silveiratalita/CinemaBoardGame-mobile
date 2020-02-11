@@ -15,12 +15,12 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import Login from './src/Pages/Login';
-import Register from './src/Pages/Register';
-import Home from './src/Pages/Home';
-import CreateGameRoom from './src/Pages/CreateGameRoom';
-import Room from './src/Pages/Room';
-import GameRoom from './src/Pages/GameRoom/index';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import Home from './Pages/Home';
+import CreateGameRoom from './Pages/CreateGameRoom';
+import Room from './Pages/Room/Index';
+import GameRoom from './Pages/GameRoom/index';
 
 import {
   Header,
