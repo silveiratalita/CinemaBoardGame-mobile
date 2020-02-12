@@ -23,7 +23,7 @@ function Login() {
       email: inputMailValue,
     };
    try {
-    const response = await api.get('/player/d=1');
+    const response = await api.get('/player');
     console.tron.log(response);
   } catch (error) {
     console.tron.error(error);
