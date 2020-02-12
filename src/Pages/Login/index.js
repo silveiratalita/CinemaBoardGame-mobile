@@ -17,12 +17,17 @@ function Login() {
   const name = 'Nome'
   const email = 'Email';
 
-  function handleLogin() {
+  async function handleLogin() {
     const person = {
       name: inputNameValue,
       email: inputMailValue,
     };
-    console.tron.log('oi');
+   try {
+    const response = await api.get('/player/d=1');
+    console.tron.log(response);
+  } catch (error) {
+    console.tron.error(error);
+  }
   }
   const [inputNameValue, setInputNameValue] = useState('');
     const [inputMailValue, setInputMailValue] = useState('');
