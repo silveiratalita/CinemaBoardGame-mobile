@@ -12,18 +12,25 @@ import {
   TextLogin,
   Container,
 } from './styles';
-function Login() {
+
+
+function Login({navigation}) {
+
   const title = 'aqui é o titulo';
   const name = 'Nome'
   const email = 'Email';
 
+      
+  function navigateToDashboard({navigation}) {
+    navigation.navigate()
+  }
   async function handleLogin() {
     const person = {
       name: inputNameValue,
       email: inputMailValue,
     };
    try {
-    const response = await api.get('/player');
+    const response = await api.get('/player',{id:1});
     console.tron.log(response);
   } catch (error) {
     console.tron.error(error);
@@ -56,7 +63,7 @@ const onInputChangeName = useCallback(value => {
           />
         </LoginBodyView>
         <CreateAcountOrEnter enter>
-          <CreateAcountOrEnterText onPress={handleLogin}>
+          <CreateAcountOrEnterText onPress={() => navigation.navigate('Home')}>
             ENTRAR
           </CreateAcountOrEnterText>
         </CreateAcountOrEnter>
@@ -64,7 +71,7 @@ const onInputChangeName = useCallback(value => {
           Ainda não tem uma conta?
         </CreateAcountOrEnterText>
 
-        <CreateAcountOrEnter tap>
+        <CreateAcountOrEnter tap onPress={() => navigation.navigate('Register')}>
           <CreateAcountOrEnterText>Clique aqui</CreateAcountOrEnterText>
         </CreateAcountOrEnter>
       </Container>

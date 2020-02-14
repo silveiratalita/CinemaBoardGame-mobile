@@ -15,7 +15,7 @@ import {
 import Header from '../../Components/Header';
 import { SafeAreaView } from 'react-native';
 
-function Home() {
+function Home({navigation}) {
     const teste = 'teste';
     const partidas = [
       {
@@ -162,10 +162,9 @@ function Home() {
           renderItem={renderItens}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={renderSeparator}
-      
         />
       </GamesView>
-      <CreateNewGameButton>
+      <CreateNewGameButton onPress={() => navigation.navigate('CreateGameRoom')}>
         <CreateNewGameText>Criar Partida</CreateNewGameText>
       </CreateNewGameButton>
     </Container>
