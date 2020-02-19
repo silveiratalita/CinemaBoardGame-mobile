@@ -15,8 +15,9 @@ import {
 import Header from '../../Components/Header';
 import { SafeAreaView } from 'react-native';
 
-function Home({navigation}) {
-    const teste = 'teste';
+function Home({navigation,route}) {
+  const teste = 'teste';
+  const { nome,matches } = route.params;
     const partidas = [
       {
         id: 0,
@@ -137,13 +138,11 @@ function Home({navigation}) {
   }
     function renderItens({item}) {
       return (
-   
-          <GamesItenView>
-            <GamesViewText>{`Jogadores: ${item.jogadores}`}</GamesViewText>
-            <GamesViewText>{`Data: ${item.data}`}</GamesViewText>
-            <GamesViewText>{`Vencedor: ${item.vencedor}`}</GamesViewText>
-          </GamesItenView>
-
+        <GamesItenView>
+          <GamesViewText>{`Jogadores: ${item.players}`}</GamesViewText>
+          <GamesViewText>{`Data: ${item.date}`}</GamesViewText>
+          <GamesViewText>{`Vencedor: ${item.winner}`}</GamesViewText>
+        </GamesItenView>
       );
     }
   return (
@@ -154,11 +153,11 @@ function Home({navigation}) {
         title3={'partidas'}
         isToShowHeaderComplete={false}
       />
-      <PlayerName>Olá Talita,</PlayerName>
+      <PlayerName>Olá {nome},</PlayerName>
       <GameList>Veja suas partidas anteriores:</GameList>
       <GamesView>
         <FlatListItens
-          data={partidas}
+          data={matches}
           renderItem={renderItens}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={renderSeparator}

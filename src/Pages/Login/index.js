@@ -19,10 +19,10 @@ function Login({navigation}) {
   const title = 'aqui é o titulo';
   const name = 'Nome'
   const email = 'Email';
-
+// onPress={() => navigation.navigate('Home',{nome:"Gustavo meu amor"})}
       
   function navigateToDashboard({navigation}) {
-    navigation.navigate()
+    navigation.navigate('Home', { nome: "Gustavo meu amor" });
   }
   async function handleLogin() {
     const person = {
@@ -30,8 +30,24 @@ function Login({navigation}) {
       email: inputMailValue,
     };
    try {
-    const response = await api.get('/player',{id:1});
-    console.tron.log(response);
+    const playerResponse = await api.get('/player/1');
+     console.tron.log(playerResponse);
+     const nome = playerResponse.data.nome;
+     const matchesResponse = await api.get('/matches');
+
+
+     const matches = matchesResponse.map( match=>
+       obj = {
+      players: match.players.join(', '),
+      winner: match.winner,
+      date:match.date,
+     },
+     );
+     console.tron.log('matehes',matches)
+     
+     console.tron.log(matches)
+     navigation.navigate('Home', { nome ,matches});
+     
   } catch (error) {
     console.tron.error(error);
   }
@@ -63,7 +79,7 @@ const onInputChangeName = useCallback(value => {
           />
         </LoginBodyView>
         <CreateAcountOrEnter enter>
-          <CreateAcountOrEnterText onPress={() => navigation.navigate('Home')}>
+          <CreateAcountOrEnterText onPress={handleLogin}>
             ENTRAR
           </CreateAcountOrEnterText>
         </CreateAcountOrEnter>
