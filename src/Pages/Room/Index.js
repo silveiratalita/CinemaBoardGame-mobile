@@ -24,7 +24,9 @@ import {
 } from './styles';
 import shareImg from '../../../assets/icons/share.png'
 import Header from '../../Components/Header';
-function Room() {
+
+function Room({ navigation, route }) {
+  const {userData, roomName} = route.params;
     const data = [
       {a: 1},
       {a: 1},
@@ -50,12 +52,13 @@ function Room() {
             // </PlayerList>
         );
     }
+  console.tron.log('------------', roomName);
     return (
       <Container>
         <Header />
         <TopContainer>
           <LeftSide>
-            <RoomName>Nome da tela</RoomName>
+            <RoomName>nome da sala :{roomName}</RoomName>
             <RoomLink>Link da sala</RoomLink>
           </LeftSide>
           <RightSide>

@@ -28,20 +28,9 @@ function Login({navigation}) {
     };
    try {
          const playerResponse = await api.get('/player/1');
-         console.tron.log(playerResponse);
-         const nome = playerResponse.data.nome;
-         console.tron.log(nome);
+         const userData = playerResponse.data;
          const matchesResponse = await api.get('/matches');
-         //  console.tron.log(matchesResponse);
-         //     matches = matchesResponse.map(
-         //       match =>
-         //         (obj = {
-         //           players: match.players.join(', '),
-         //           winner: match.winner,
-         //           date: match.date,
-         //         }),
-         //     );
-         navigation.navigate('Home', {nome, matchesResponse});
+         navigation.navigate('Home', {userData, matchesResponse});
        } catch (error) {
     console.tron.error(error);
   }

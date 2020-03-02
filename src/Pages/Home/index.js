@@ -18,7 +18,7 @@ import { SafeAreaView } from 'react-native';
 
 function Home({navigation,route}) {
   const teste = 'teste';
-  const { nome,matchesResponse } = route.params;
+  const {userData, matchesResponse} = route.params;
  
   const matches = matchesResponse.data.map(matche => obj = {
     players: matche.players.join(', '),
@@ -49,7 +49,7 @@ function Home({navigation,route}) {
         title3={'partidas'}
         isToShowHeaderComplete={false}
       />
-      <PlayerName>Olá {nome},</PlayerName>
+      <PlayerName>Olá {userData.nome},</PlayerName>
       <GameList>Veja suas partidas anteriores:</GameList>
       <GamesView>
         <FlatListItens
@@ -59,7 +59,8 @@ function Home({navigation,route}) {
           ItemSeparatorComponent={renderSeparator}
         />
       </GamesView>
-      <CreateNewGameButton onPress={() => navigation.navigate('CreateGameRoom')}>
+      <CreateNewGameButton
+        onPress={() => navigation.navigate('CreateGameRoom',{userData})}>
         <CreateNewGameText>Criar Partida</CreateNewGameText>
       </CreateNewGameButton>
     </Container>

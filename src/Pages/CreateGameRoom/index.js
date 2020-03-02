@@ -1,4 +1,4 @@
-import React, { Text } from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import Header from '../../Components/Header';
 import {
   LabelInput,
@@ -11,18 +11,32 @@ import {
 import InputDefault from '../../Components/InputDefault';
 
 
-function GameRoom() {
+function CreateGameRoom({ navigation, route }) {
+  const { userData } = route.params;
+  const [inputNameRoomValue, setInputNameRoomValue] = useState('');
+  const onInputRoomName = useCallback(value => {
+    setInputNameRoomValue(value);
+  });
+  function handleCreateRoom() {
+      navigation.navigate('Room', { userData, inputNameRoomValue });
+  }
+  useEffect(() => {
+  }, [inputNameRoomValue]);
   return (
     <Container>
       <Header isToShowHeaderComplete={false} />
       <ContainerContent>
         <TextTitle>Informe o nome da sala</TextTitle>
-        <InputDefault placeholder={'Insira o nome da sua sala aqui!'} />
+        <InputDefault
+          placeholder={'Insira o nome da sua sala aqui!'}
+          onChangeText={onInputRoomName}
+          value={inputNameRoomValue}
+        />
       </ContainerContent>
-      <SaveButton>
+      <SaveButton onPress={handleCreateRoom}>
         <TextButton>CRIE SUA SALA AGORA</TextButton>
       </SaveButton>
     </Container>
   );
 }
-export default GameRoom;
+export default CreateGameRoom;

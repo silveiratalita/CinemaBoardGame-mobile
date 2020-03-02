@@ -6,14 +6,17 @@ import Login from './Pages/Login'
 import Home from './Pages/Home';
 import CreateGameRoom from './Pages/CreateGameRoom';
 import Register from './Pages/Register';
-// import Room from './Pages/Room';
+ import Room from './Pages/Room/Index';
 
 const Stack = createStackNavigator();
 
 function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+      />
       <Stack.Screen
         options={{title: 'Dashboard'}}
         name="Home"
@@ -29,11 +32,11 @@ function MyStack() {
         name="CreateGameRoom"
         component={CreateGameRoom}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         options={{title: 'Sala'}}
         name="Room"
         component={Room}
-      /> */}
+      />
     </Stack.Navigator>
   );
 }
