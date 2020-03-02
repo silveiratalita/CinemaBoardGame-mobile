@@ -20,8 +20,6 @@ function CreateGameRoom({ navigation, route }) {
   function handleCreateRoom() {
       navigation.navigate('Room', { userData, inputNameRoomValue });
   }
-  useEffect(() => {
-  }, [inputNameRoomValue]);
   return (
     <Container>
       <Header isToShowHeaderComplete={false} />
