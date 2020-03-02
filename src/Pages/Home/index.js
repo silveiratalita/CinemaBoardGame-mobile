@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   HomeContainer,
   GamesView,
@@ -13,124 +13,19 @@ import {
   GamesItenView,
 } from './styles';
 import Header from '../../Components/Header';
+import api from '../../services/api';
 import { SafeAreaView } from 'react-native';
 
 function Home({navigation,route}) {
   const teste = 'teste';
-  const { nome,matches } = route.params;
-    const partidas = [
-      {
-        id: 0,
-        jogadores: 'talita e Gustavo',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
+  const { nome,matchesResponse } = route.params;
+ 
+  const matches = matchesResponse.data.map(matche => obj = {
+    players: matche.players.join(', '),
+    winner: matche.winner,
+    date: matche.date,
+  });
 
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-    ];
   function renderSeparator() {
     return (
       <Separator/>
@@ -145,6 +40,7 @@ function Home({navigation,route}) {
         </GamesItenView>
       );
     }
+
   return (
     <Container>
       <Header

@@ -19,36 +19,30 @@ function Login({navigation}) {
   const title = 'aqui é o titulo';
   const name = 'Nome'
   const email = 'Email';
-// onPress={() => navigation.navigate('Home',{nome:"Gustavo meu amor"})}
-      
-  function navigateToDashboard({navigation}) {
-    navigation.navigate('Home', { nome: "Gustavo meu amor" });
-  }
+
+  
   async function handleLogin() {
     const person = {
       name: inputNameValue,
       email: inputMailValue,
     };
    try {
-    const playerResponse = await api.get('/player/1');
-     console.tron.log(playerResponse);
-     const nome = playerResponse.data.nome;
-     const matchesResponse = await api.get('/matches');
-
-
-     const matches = matchesResponse.map( match=>
-       obj = {
-      players: match.players.join(', '),
-      winner: match.winner,
-      date:match.date,
-     },
-     );
-     console.tron.log('matehes',matches)
-     
-     console.tron.log(matches)
-     navigation.navigate('Home', { nome ,matches});
-     
-  } catch (error) {
+         const playerResponse = await api.get('/player/1');
+         console.tron.log(playerResponse);
+         const nome = playerResponse.data.nome;
+         console.tron.log(nome);
+         const matchesResponse = await api.get('/matches');
+         //  console.tron.log(matchesResponse);
+         //     matches = matchesResponse.map(
+         //       match =>
+         //         (obj = {
+         //           players: match.players.join(', '),
+         //           winner: match.winner,
+         //           date: match.date,
+         //         }),
+         //     );
+         navigation.navigate('Home', {nome, matchesResponse});
+       } catch (error) {
     console.tron.error(error);
   }
   }

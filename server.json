@@ -52,12 +52,24 @@
         {
             "id": 2,
            "players": ["Nilo", "Sabrina", "Andrey","Gustavo"],
-            "winer": "Nilo",
+            "winner": "Nilo",
             "date": "19/02/2020"
         },
         {
+            "id": 3,
             "players": ["Nilo",  "Sabrina","Andrey", "Gustavo"],
-            "winer": "Gustavo",
+            "winner": "Gustavo",
+            "date": "19/02/2020"
+        }, {
+            "id": 4,
+            "players": ["Nilo", "Sabrina", "Andrey", "Gustavo"],
+            "winner": "Gustavo",
+            "date": "19/02/2020"
+        },
+        {
+            "id": 5,
+            "players": ["Nilo", "Sabrina", "Andrey", "Gustavo"],
+            "winner": "Gustavo",
             "date": "19/02/2020"
         }
     ],
