@@ -26,7 +26,7 @@ import shareImg from '../../../assets/icons/share.png'
 import Header from '../../Components/Header';
 
 function Room({ navigation, route }) {
-  const {userData, inputNameRoomValue} = route.params;
+  const { userData, inputNameRoomValue, inputNumberOfRounds } = route.params;
     const data = [
       {a: 1},
       {a: 1},
@@ -47,12 +47,9 @@ function Room({ navigation, route }) {
   }
     function renderItens({item}){
         return (
-            // <PlayerList>
                 <PlayerListText>Talita acabou de entrar na sala</PlayerListText>
-            // </PlayerList>
         );
     }
-  console.tron.log('------------', inputNameRoomValue);
     return (
       <Container>
         <Header />
@@ -71,7 +68,7 @@ function Room({ navigation, route }) {
           <ImageDanger source={image} />
           <ViewToStyle>
             <EstimatedTimeAndNumberOfRoundsText>
-              Numero de Rodadas: 4
+              Numero de Rodadas: {inputNumberOfRounds}
             </EstimatedTimeAndNumberOfRoundsText>
             <EstimatedTimeAndNumberOfRoundsText>
               Tempo estimado da partida de 30 minutos

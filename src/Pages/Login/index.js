@@ -59,6 +59,8 @@ const onInputChangeName = useCallback(value => {
             placeholder={email}
             onChangeText={onInputChangeMail}
             value={inputMailValue}
+            keyboardType={'email - address'}
+            textContentType={'emailAddress'}
           />
         </LoginBodyView>
         <CreateAcountOrEnter enter>
@@ -70,7 +72,9 @@ const onInputChangeName = useCallback(value => {
           Ainda não tem uma conta?
         </CreateAcountOrEnterText>
 
-        <CreateAcountOrEnter tap onPress={() => navigation.navigate('Register')}>
+        <CreateAcountOrEnter
+          tap
+          onPress={() => navigation.navigate('Register')}>
           <CreateAcountOrEnterText>Clique aqui</CreateAcountOrEnterText>
         </CreateAcountOrEnter>
       </Container>

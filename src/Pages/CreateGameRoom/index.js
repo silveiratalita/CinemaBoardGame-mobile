@@ -15,6 +15,7 @@ function CreateGameRoom({ navigation, route }) {
 
   const { userData } = route.params;
   const [inputNameRoomValue, setInputNameRoomValue] = useState('');
+  const [inputNumberOfRounds, setInputNumberOfRounds] = useState('');
 
   // const onInputRoomName = useCallback(value => {
   //   setInputNameRoomValue(value);
@@ -22,7 +23,7 @@ function CreateGameRoom({ navigation, route }) {
   // });
 
   function handleCreateRoom() {
-      navigation.navigate('Room', { userData, inputNameRoomValue });
+      navigation.navigate('Room', { userData, inputNameRoomValue, inputNumberOfRounds });
   }
 
   return (
@@ -32,8 +33,14 @@ function CreateGameRoom({ navigation, route }) {
         <TextTitle>Informe o nome da sala</TextTitle>
         <InputDefault
           placeholder={'Insira o nome da sua sala aqui!'}
-          onChangeText={text=>setInputNameRoomValue(text)}
+          onChangeText={text => setInputNameRoomValue(text)}
           value={inputNameRoomValue}
+        />
+        <TextTitle>Informe a quantidade de rodadas que você quer jogar</TextTitle>
+        <InputDefault
+          placeholder={'Insira o numero de rodadas aqui!'}
+          onChangeText={text => setInputNumberOfRounds(text)}
+          value={inputNumberOfRounds}
         />
       </ContainerContent>
       <SaveButton onPress={handleCreateRoom}>
