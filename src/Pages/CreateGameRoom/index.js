@@ -12,14 +12,19 @@ import InputDefault from '../../Components/InputDefault';
 
 
 function CreateGameRoom({ navigation, route }) {
+
   const { userData } = route.params;
   const [inputNameRoomValue, setInputNameRoomValue] = useState('');
-  const onInputRoomName = useCallback(value => {
-    setInputNameRoomValue(value);
-  });
+
+  // const onInputRoomName = useCallback(value => {
+  //   setInputNameRoomValue(value);
+  //   console.tron.log('---',inputNameRoomValue);
+  // });
+
   function handleCreateRoom() {
       navigation.navigate('Room', { userData, inputNameRoomValue });
   }
+
   return (
     <Container>
       <Header isToShowHeaderComplete={false} />
@@ -27,7 +32,7 @@ function CreateGameRoom({ navigation, route }) {
         <TextTitle>Informe o nome da sala</TextTitle>
         <InputDefault
           placeholder={'Insira o nome da sua sala aqui!'}
-          onChangeText={onInputRoomName}
+          onChangeText={text=>setInputNameRoomValue(text)}
           value={inputNameRoomValue}
         />
       </ContainerContent>

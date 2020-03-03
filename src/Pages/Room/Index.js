@@ -26,7 +26,7 @@ import shareImg from '../../../assets/icons/share.png'
 import Header from '../../Components/Header';
 
 function Room({ navigation, route }) {
-  const {userData, roomName} = route.params;
+  const {userData, inputNameRoomValue} = route.params;
     const data = [
       {a: 1},
       {a: 1},
@@ -52,13 +52,13 @@ function Room({ navigation, route }) {
             // </PlayerList>
         );
     }
-  console.tron.log('------------', roomName);
+  console.tron.log('------------', inputNameRoomValue);
     return (
       <Container>
         <Header />
         <TopContainer>
           <LeftSide>
-            <RoomName>nome da sala :{roomName}</RoomName>
+            <RoomName>nome da sala :{inputNameRoomValue}</RoomName>
             <RoomLink>Link da sala</RoomLink>
           </LeftSide>
           <RightSide>
