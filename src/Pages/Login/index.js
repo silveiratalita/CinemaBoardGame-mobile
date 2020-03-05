@@ -59,8 +59,8 @@ const onInputChangeName = useCallback(value => {
             placeholder={email}
             onChangeText={onInputChangeMail}
             value={inputMailValue}
-            keyboardType={'email - address'}
-            textContentType={'emailAddress'}
+            // keyboardType={"email - address"}
+            // textContentType={"emailAddress"}
           />
         </LoginBodyView>
         <CreateAcountOrEnter enter>
