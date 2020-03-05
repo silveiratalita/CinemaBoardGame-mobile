@@ -24,7 +24,9 @@ import {
 } from './styles';
 import shareImg from '../../../assets/icons/share.png'
 import Header from '../../Components/Header';
-function Room() {
+
+function Room({ navigation, route }) {
+  const { userData, inputNameRoomValue, inputNumberOfRounds } = route.params;
     const data = [
       {a: 1},
       {a: 1},
@@ -45,9 +47,7 @@ function Room() {
   }
     function renderItens({item}){
         return (
-            // <PlayerList>
                 <PlayerListText>Talita acabou de entrar na sala</PlayerListText>
-            // </PlayerList>
         );
     }
     return (
@@ -55,7 +55,7 @@ function Room() {
         <Header />
         <TopContainer>
           <LeftSide>
-            <RoomName>Nome da tela</RoomName>
+            <RoomName>nome da sala :{inputNameRoomValue}</RoomName>
             <RoomLink>Link da sala</RoomLink>
           </LeftSide>
           <RightSide>
@@ -68,7 +68,7 @@ function Room() {
           <ImageDanger source={image} />
           <ViewToStyle>
             <EstimatedTimeAndNumberOfRoundsText>
-              Numero de Rodadas: 4
+              Numero de Rodadas: {inputNumberOfRounds}
             </EstimatedTimeAndNumberOfRoundsText>
             <EstimatedTimeAndNumberOfRoundsText>
               Tempo estimado da partida de 30 minutos

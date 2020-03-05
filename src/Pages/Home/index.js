@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   HomeContainer,
   GamesView,
@@ -13,123 +13,19 @@ import {
   GamesItenView,
 } from './styles';
 import Header from '../../Components/Header';
+import api from '../../services/api';
 import { SafeAreaView } from 'react-native';
 
-function Home() {
-    const teste = 'teste';
-    const partidas = [
-      {
-        id: 0,
-        jogadores: 'talita e Gustavo',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
+function Home({navigation,route}) {
+  const teste = 'teste';
+  const {userData, matchesResponse} = route.params;
+ 
+  const matches = matchesResponse.data.map(matche => obj = {
+    players: matche.players.join(', '),
+    winner: matche.winner,
+    date: matche.date,
+  });
 
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-      {
-        id: 1,
-        jogadores: 'talita e owli',
-        data: '20/10/2019',
-        vencedor: 'Talita',
-      },
-    ];
   function renderSeparator() {
     return (
       <Separator/>
@@ -137,15 +33,14 @@ function Home() {
   }
     function renderItens({item}) {
       return (
-   
-          <GamesItenView>
-            <GamesViewText>{`Jogadores: ${item.jogadores}`}</GamesViewText>
-            <GamesViewText>{`Data: ${item.data}`}</GamesViewText>
-            <GamesViewText>{`Vencedor: ${item.vencedor}`}</GamesViewText>
-          </GamesItenView>
-
+        <GamesItenView>
+          <GamesViewText>{`Jogadores: ${item.players}`}</GamesViewText>
+          <GamesViewText>{`Data: ${item.date}`}</GamesViewText>
+          <GamesViewText>{`Vencedor: ${item.winner}`}</GamesViewText>
+        </GamesItenView>
       );
     }
+
   return (
     <Container>
       <Header
@@ -154,18 +49,18 @@ function Home() {
         title3={'partidas'}
         isToShowHeaderComplete={false}
       />
-      <PlayerName>Olá Talita,</PlayerName>
+      <PlayerName>Olá {userData.nome},</PlayerName>
       <GameList>Veja suas partidas anteriores:</GameList>
       <GamesView>
         <FlatListItens
-          data={partidas}
+          data={matches}
           renderItem={renderItens}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={renderSeparator}
-      
         />
       </GamesView>
-      <CreateNewGameButton>
+      <CreateNewGameButton
+        onPress={() => navigation.navigate('CreateGameRoom',{userData})}>
         <CreateNewGameText>Criar Partida</CreateNewGameText>
       </CreateNewGameButton>
     </Container>

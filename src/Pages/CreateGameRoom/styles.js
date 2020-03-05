@@ -4,6 +4,7 @@ export const Container = styled.SafeAreaView`
          align-items: center;
          background: #fafafa;
         justify-content:space-between;
+        flex:1;
          
        `;
 export const ContainerContent = styled.View`
@@ -13,15 +14,15 @@ border-radius:50px;
 width:90%;
 height:30%;
 align-items:center;
-/* justify-content:space-between */
  justify-content:center;
  padding-top:50px;
+ flex:3;
   `;
 
 
 
 export const TextTitle = styled.Text`
-         font-size: 30;
+         font-size: 23;
          color: #000051;
          margin: 8%;
          text-align: center;

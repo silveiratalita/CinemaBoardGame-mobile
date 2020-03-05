@@ -1,15 +1,12 @@
 import React from 'react';
 import {InputView, InputText} from './styles';
 
-type Props = {
-    placeholder: String,
-};
-function InputDefault({placeholder}: Prop) {
+
+function InputDefault({...props}) {
   return (
-
-      <InputText placeholder={placeholder} />
-
+    <InputText {...props}/>
   );
 }
+
 
 export default InputDefault;

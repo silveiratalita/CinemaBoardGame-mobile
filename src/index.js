@@ -5,7 +5,13 @@
  * @format
  * @flow
  */
+
+
+
+
+import 'react-native-gesture-handler';
 import './config/ReactotronConfig';
+import 'react-native-gesture-handler';
 import React from 'react';
 import {
   SafeAreaView,
@@ -15,13 +21,16 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import Login from './src/Pages/Login';
-import Register from './src/Pages/Register';
-import Home from './src/Pages/Home';
-import CreateGameRoom from './src/Pages/CreateGameRoom';
-import Room from './src/Pages/Room';
-import GameRoom from './src/Pages/GameRoom/index';
-
+import { NavigationContainer } from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import Home from './Pages/Home';
+import CreateGameRoom from './Pages/CreateGameRoom';
+import Room from './Pages/Room/Index';
+import GameRoom from './Pages/GameRoom/index';
+import MyStack from './routes';
+import './config/ReactotronConfig';
 import {
   Header,
   LearnMoreLinks,
@@ -30,8 +39,13 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
-  return <Room />;
+export default function App() {
+  
+  return (
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+  );
 };
 
-export default App;
+
