@@ -1,6 +1,6 @@
 import React, { useState,useCallback } from 'react';
 import Header from '../../Components/Header';
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, Text, Alert} from 'react-native';
 import InputDefault from '../../Components/InputDefault';
 import image from '../../../assets/CINEMA.jpg';
 import api from '../../services/api';
@@ -22,16 +22,22 @@ function Login({navigation}) {
 
   
   async function handleLogin() {
-    const person = {
-      name: inputNameValue,
-      email: inputMailValue,
-    };
-   try {
-         const playerResponse = await api.get('/player/1');
-         const userData = playerResponse.data;
-         const matchesResponse = await api.get('/matches');
-         navigation.navigate('Home', {userData, matchesResponse});
-       } catch (error) {
+    
+    try {
+     const response = await api.get('/users', {
+       params: {
+         email: inputMailValue,
+         username: inputNameValue,
+       }
+         });
+      const userData = response.data;
+      console.tron.log('response',response)
+     console.tron.log('playerResponse',userData)
+        //  const matchesResponse = await api.get('/matches');
+    //  navigation.navigate('Home', { userData, matchesResponse });
+     navigation.navigate('Home', {userData});
+    } catch (error) {
+      alert("Usuário não encontrado.Por favor verifique o nome de usuário e seu email")
     console.tron.error(error);
   }
   }
@@ -59,8 +65,6 @@ const onInputChangeName = useCallback(value => {
             placeholder={email}
             onChangeText={onInputChangeMail}
             value={inputMailValue}
-            // keyboardType={"email - address"}
-            // textContentType={"emailAddress"}
           />
         </LoginBodyView>
         <CreateAcountOrEnter enter>

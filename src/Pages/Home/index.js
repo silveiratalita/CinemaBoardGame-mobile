@@ -18,9 +18,41 @@ import { SafeAreaView } from 'react-native';
 
 function Home({navigation,route}) {
   const teste = 'teste';
-  const {userData, matchesResponse} = route.params;
- 
-  const matches = matchesResponse.data.map(matche => obj = {
+  // const {userData, matchesResponse} = route.params;
+  const { userData } = route.params;
+  const matchesResponse = [
+    {
+      id: 1,
+      players: ['Nilo', 'Sabrina', 'Andrey', 'Gustavo'],
+      winner: 'Andrey',
+      date: '19/02/2020',
+    },
+    {
+      id: 2,
+      players: ['Nilo', 'Sabrina', 'Andrey', 'Gustavo'],
+      winner: 'Nilo',
+      date: '19/02/2020',
+    },
+    {
+      id: 3,
+      players: ['Nilo', 'Sabrina', 'Andrey', 'Gustavo'],
+      winner: 'Gustavo',
+      date: '19/02/2020',
+    },
+    {
+      id: 4,
+      players: ['Nilo', 'Sabrina', 'Andrey', 'Gustavo'],
+      winner: 'Gustavo',
+      date: '19/02/2020',
+    },
+    {
+      id: 5,
+      players: ['Nilo', 'Sabrina', 'Andrey', 'Gustavo'],
+      winner: 'Gustavo',
+      date: '19/02/2020',
+    },
+  ];
+  const matches = matchesResponse.map(matche => obj = {
     players: matche.players.join(', '),
     winner: matche.winner,
     date: matche.date,
@@ -49,7 +81,7 @@ function Home({navigation,route}) {
         title3={'partidas'}
         isToShowHeaderComplete={false}
       />
-      <PlayerName>Olá {userData.nome},</PlayerName>
+      <PlayerName>Olá {userData.username},</PlayerName>
       <GameList>Veja suas partidas anteriores:</GameList>
       <GamesView>
         <FlatListItens
