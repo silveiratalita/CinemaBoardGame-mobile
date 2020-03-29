@@ -33,8 +33,9 @@ function Login({navigation}) {
       const userData = response.data;
       console.tron.log('response',response)
      console.tron.log('playerResponse',userData)
-        //  const matchesResponse = await api.get('/matches');
-    //  navigation.navigate('Home', { userData, matchesResponse });
+      const matchesResponse = await api.get(`matches/${userData.id}`);
+      
+     navigation.navigate('Home', { userData, matchesResponse });
      navigation.navigate('Home', {userData});
     } catch (error) {
       alert("Usuário não encontrado.Por favor verifique o nome de usuário e seu email")

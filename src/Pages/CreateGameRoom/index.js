@@ -9,6 +9,7 @@ import {
   ContainerContent,
 } from './styles';
 import InputDefault from '../../Components/InputDefault';
+import api from '../../services/api';
 
 
 function CreateGameRoom({ navigation, route }) {
@@ -22,8 +23,25 @@ function CreateGameRoom({ navigation, route }) {
   //   console.tron.log('---',inputNameRoomValue);
   // });
 
-  function handleCreateRoom() {
-      navigation.navigate('Room', { userData, inputNameRoomValue, inputNumberOfRounds });
+  async function handleCreateRoom() {
+    try {
+      const response = await api.post('/matches', {
+       
+          userEmail: userData.email,
+          roomName: inputNameRoomValue,
+          rounds: inputNumberOfRounds,
+      
+      });
+      console.tron.log('response', response);
+      navigation.navigate('Room', {
+        userData,
+        inputNameRoomValue,
+        inputNumberOfRounds,
+      });
+    } catch (err) {
+      
+    }
+    
   }
 
   return (
